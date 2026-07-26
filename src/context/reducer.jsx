@@ -1,6 +1,7 @@
 export const initialState = {
   todos: JSON.parse(localStorage.getItem("todos")) || [],
   theme: localStorage.getItem("theme") || "light",
+  state:localStorage.getItem("state") || ""
 };
 export function reducer(state, action) {
   switch (action.type) {
@@ -24,6 +25,21 @@ export function reducer(state, action) {
         ...state,
         theme: state.theme === "light" ? "dark" : "light",
       };
+      case "WORK_THEME":
+        return{
+          ...state,
+          state:state.state==="bg-sky-300 text-sky-600"
+        }
+        case "STUDY_THEME":
+          return{
+            ...state,
+            state:state.state==="bg-red-300 text-red-600"
+          }
+        case "PERSONAL_THEME":
+          return{
+            ...state,
+            state:state.state==="bg-gray-300 text-gray-700"
+          }
     default:
       return state;
   }

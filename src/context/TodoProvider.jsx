@@ -12,6 +12,9 @@ export default function TodoProvider({ children }) {
     useEffect(()=>(
         localStorage.setItem("theme",state.theme)
     ),[state.theme])
+    useEffect(()=>(
+        localStorage.setItem("state",state.state)
+    ),[state.state])
     return (
         <TodoContext.Provider
             value={{
